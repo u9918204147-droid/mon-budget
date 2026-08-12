@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Zones sûres iPhone (encoche / barre du bas) quand l'app tourne en plein écran */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-fab {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.25rem);
+  right: calc(env(safe-area-inset-right, 0px) + 1.25rem);
+}
+
+[data-theme="light"] {
+  --bg: #eef1ec;
+  --surface: #ffffff;
+  --surface-2: #f5f7f3;
+  --ink: #16241c;
+  --ink-soft: #55635a;
+  --line: #dce2d9;
+  --accent: #2f6f4e;
+  --accent-soft: #e4eee7;
+  --gold: #c9a24b;
+  --danger: #b3432b;
+  --warning: #c97a2b;
+  --shadow: 0 1px 2px rgba(22, 36, 28, 0.04), 0 8px 24px -12px rgba(22, 36, 28, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg: #10170f;
+  --surface: #182019;
+  --surface-2: #1e271f;
+  --ink: #e9ede7;
+  --ink-soft: #9fab9a;
+  --line: #2a332b;
+  --accent: #4c9a72;
+  --accent-soft: #1e3327;
+  --gold: #d9b865;
+  --danger: #e0684c;
+  --warning: #e0a24c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 28px -14px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.45s ease-out both;
+}
+
+.ruled {
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 27px, var(--line) 28px);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
